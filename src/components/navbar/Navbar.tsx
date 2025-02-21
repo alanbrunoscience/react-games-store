@@ -31,11 +31,14 @@ function Navbar() {
 
       {/* Barra de pesquisa (centralizada no Mobile) */}
       <div className="p-4 xl:hidden">
-        <input
-          type="text"
-          placeholder="O que deseja buscar?"
-          className="w-full text-gray-800 bg-white rounded-md py-2 px-3 text-sm"
-        />
+        <div className="flex items-center bg-white rounded-2xl">
+          <input
+            type="text"
+            placeholder="O que deseja buscar?"
+            className="w-full text-gray-800 py-2 px-3 text-sm"
+          />
+          <MagnifyingGlass size={28} className="mx-2 text-gray-600" />
+        </div>
       </div>
 
       {/* Menu Mobile (abre ao clicar no botão hambúrguer) */}
@@ -47,7 +50,7 @@ function Navbar() {
 
       */}
 
-      {menuOpen && ( 
+      {menuOpen && (
         <nav className="absolute top-[60px] left-0 w-full bg-slate-900 text-white py-2">
           <ul className="flex flex-col items-start px-4">
             <li className="w-full py-3 border-b border-gray-400">Login</li>
@@ -63,7 +66,7 @@ function Navbar() {
           hidden: esconde essa <div> por padrão;
           xl:flex: mostra a <div> como modelo "flexbox" em telas de 1280px ou maiores.
       */}
-      <div className="hidden xl:flex items-center justify-between px-8 py-4">
+      <div className="container mx-auto px-4 hidden xl:flex items-center justify-between py-4">
 
         {/* Logo e Nome (lado esquerdo) */}
         <div className="flex items-center">
@@ -76,12 +79,13 @@ function Navbar() {
         </div>
 
         {/* Barra de Pesquisa */}
-        <div className="w-1/3">
+        <div className="w-1/3 flex bg-white rounded-2xl items-center">
           <input
             type="text"
             placeholder="O que deseja buscar?"
-            className="w-full text-gray-800 bg-white rounded-md py-2 px-3 text-sm"
+            className="w-full text-gray-800 py-2 px-3 text-sm"
           />
+          <MagnifyingGlass size={28} className="mx-2 text-gray-600" />
         </div>
 
         {/* Opções de Navegação */}
