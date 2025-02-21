@@ -8,7 +8,7 @@ function Navbar() {
     <header className="relative bg-slate-800 text-white w-full">
 
       {/* Navbar Responsiva (Mobile) - Exibir em telas de 1024px ou menos */}
-      <div className="flex items-center justify-between p-4 xl:hidden">
+      <div className="w-full flex items-center justify-between p-4 xl:hidden">
 
         {/* Ícone do menu hambúrguer (somente no Mobile) */}
         <button onClick={() => setMenuOpen(!menuOpen)}>
@@ -51,7 +51,7 @@ function Navbar() {
       */}
 
       {menuOpen && (
-        <nav className="absolute top-[60px] left-0 w-full bg-slate-900 text-white py-2">
+        <nav className="absolute top-[60px] left-0 w-full bg-slate-900 text-white py-2 xl:hidden">
           <ul className="flex flex-col items-start px-4">
             <li className="w-full py-3 border-b border-gray-400">Login</li>
             <li className="w-full py-3 border-b border-gray-400">Produtos</li>
