@@ -41,9 +41,8 @@ function Navbar() {
       {/* Menu Mobile (abre ao clicar no botão hambúrguer) */}
 
       {/* Explicações relevantes para o trecho de código abaixo
-          
-          - Se menuOpen for "true", a parte à direita de && (o componente de navegação) será renderizada. Caso seja "false", a parte da direita de && será ignorada e nada será renderizada.
 
+          - Se menuOpen for "true", a parte à direita de && (o componente de navegação) será renderizada. Caso seja "false", a parte da direita de && será ignorada e nada será renderizada;
           - "absolute": significa que o elemento <-nav> será posicionado fora do fluxo normal do documento, ou seja, ele não ocupará espaço no layout tradicional (como se fosse "flutuante"). Ele será posicionado em relação ao <header>, já que este é o elemento pai (position: relative). Caso não houvesse um elemento com "position: relative", o posicionamento absoluto iria se referir ao <body> ou ao <html> da página.
 
       */}
@@ -60,7 +59,8 @@ function Navbar() {
       )}
 
       {/* Navbar Completa para Desktop */}
-      {/* hidden: esconde essa <div> por padrão. 
+      {/* 
+          hidden: esconde essa <div> por padrão;
           xl:flex: mostra a <div> como modelo "flexbox" em telas de 1280px ou maiores.
       */}
       <div className="hidden xl:flex items-center justify-between px-8 py-4">
