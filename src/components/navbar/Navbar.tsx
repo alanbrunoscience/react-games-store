@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { MagnifyingGlass, ShoppingCart, User, List } from "@phosphor-icons/react";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false); // Controlar quando o menu hambúrguer aparece (mobile)
@@ -19,12 +20,16 @@ function Navbar() {
 
         {/* Logo e Nome (centralizado no Mobile) */}
         <div className="flex items-center md:w-auto">
-          <img
-            className="h-[4vh]" // Define a altura da logo como 5% da altura da tela.
-            src="https://ik.imagekit.io/alanbrunoscience/Games%20Stores/logolg.png?updatedAt=1739995098669"
-            alt="GameVerse Logo"
-          />
-          <p className="font-bold text-2xl mx-3">GameVerse</p>
+          <Link to='/home'>
+            <img
+              className="h-[4vh]" // Define a altura da logo como 5% da altura da tela.
+              src="https://ik.imagekit.io/alanbrunoscience/Games%20Stores/logolg.png?updatedAt=1739995098669"
+              alt="GameVerse Logo"
+            />
+          </Link>
+          <p>
+            <Link to='/home' className="font-bold text-2xl mx-3">GameVerse</Link>
+          </p>
         </div>
 
         {/* Ícone do Carrinho (somente no Mobile) */}
@@ -74,12 +79,16 @@ function Navbar() {
 
         {/* Logo e Nome (lado esquerdo) */}
         <div className="flex items-center">
-          <img
-            className="h-[6vh]"
-            src="https://ik.imagekit.io/alanbrunoscience/Games%20Stores/logolg.png?updatedAt=1739995098669"
-            alt="GameVerse Logo"
-          />
-          <p className="font-bold text-3xl mx-3">GameVerse</p>
+          <Link to='/home'>
+            <img
+              className="h-[6vh]"
+              src="https://ik.imagekit.io/alanbrunoscience/Games%20Stores/logolg.png?updatedAt=1739995098669"
+              alt="GameVerse Logo"
+            />
+          </Link>
+          <Link to='/home'>
+            <p className="font-bold text-3xl mx-3">GameVerse</p>
+          </Link>
         </div>
 
         {/* Barra de Pesquisa */}

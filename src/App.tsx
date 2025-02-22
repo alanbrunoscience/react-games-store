@@ -1,14 +1,22 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Footer from './components/footer/Footer'
 import Navbar from './components/navbar/Navbar'
 import Home from './pages/home/Home'
 
 function App() {
   return (
-    <div className="scroll-smooth antialiased">
-      <Navbar />
-      <Home />
-      <Footer />
-    </div>
+    <>
+      <BrowserRouter>
+        <Navbar />
+        <div className="scroll-smooth antialiased min-h-[80vh]">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
+          </Routes>
+        </div>
+        <Footer />
+      </BrowserRouter>
+    </>
   )
 }
 
