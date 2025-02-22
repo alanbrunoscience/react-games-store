@@ -8,34 +8,33 @@ function Footer() {
 
     <footer className="w-full flex justify-center bg-slate-800 text-white">
 
-      {/* Footer para a versão Mobile */}
-      <div className="flex flex-col items-center py-4 xl:hidden">
-        <p className="text-base font-bold">
+      {/* Footer Responsivo (Mobile e Desktop) */}
+      <div className="container mx-auto px-4 flex flex-col items-center py-4">
+        <p className="font-bold text-base md:text-lg xl:text-xl">
           GameVerse | Copyright: {date}
         </p>
 
-        <p className="text-sm py-2">Acesse as nossas redes sociais</p>
+        <p className="text-sm md:text-base xl:text-lg py-2">Acesse as nossas redes sociais</p>
 
         <section className="flex gap-3 py-1">
-          <LinkedinLogo size={28} className="font-medium" />
-          <InstagramLogo size={28} className="font-medium" />
-          <FacebookLogo size={28} className="font-medium" />
-        </section>
-
-      </div>
-
-      {/* Footer para a versão Desktop */}
-      <div className="container mx-auto px-4 hidden xl:flex flex-col items-center py-4">
-        <p className="text-xl font-bold">
-          GameVerse | Copyright: {date}
-        </p>
-
-        <p className="text-lg py-2">Acesse as nossas redes sociais</p>
-
-        <section className="flex gap-3 py-1">
-          <LinkedinLogo size={40} className="font-medium" />
-          <InstagramLogo size={40} className="font-medium" />
-          <FacebookLogo size={40} className="font-medium" />
+          <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+            <LinkedinLogo
+              className="font-medium w-7 h-7 md:w-[40px] md:h-[40px] hover:text-blue-500 transition-colors"
+              aria-label="LinkedIn"
+            />
+          </a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+            <InstagramLogo
+              className="font-medium w-7 h-7 md:w-[40px] md:h-[40px] hover:text-blue-500 transition-colors"
+              aria-label="Instagram"
+            />
+          </a>
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+            <FacebookLogo
+              className="font-medium w-7 h-7 md:w-[40px] md:h-[40px] hover:text-blue-500 transition-colors"
+              aria-label="Facebook"
+            />
+          </a>
         </section>
 
       </div>
