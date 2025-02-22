@@ -79,7 +79,7 @@ function Navbar() {
             src="https://ik.imagekit.io/alanbrunoscience/Games%20Stores/logolg.png?updatedAt=1739995098669"
             alt="GameVerse Logo"
           />
-          <p className="font-bold text-2xl mx-3">GameVerse</p>
+          <p className="font-bold text-3xl mx-3">GameVerse</p>
         </div>
 
         {/* Barra de Pesquisa */}
