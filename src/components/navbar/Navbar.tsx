@@ -8,11 +8,13 @@ function Navbar() {
     <header className="relative bg-slate-800 text-white w-full">
 
       {/* Navbar Responsiva (Mobile) - Exibir em telas de 1024px ou menos */}
-      <div className="w-full flex items-center justify-between p-4 xl:hidden">
+      <div className="w-full flex items-center justify-between px-6 pt-6 pb-2 xl:hidden">
 
         {/* Ícone do menu hambúrguer (somente no Mobile) */}
         <button onClick={() => setMenuOpen(!menuOpen)}>
-          <List size={28} />
+          <div className="border border-gray-200 rounded-sm p-1">
+            <List size={29} />
+          </div>
         </button>
 
         {/* Logo e Nome (centralizado no Mobile) */}
@@ -22,15 +24,17 @@ function Navbar() {
             src="https://ik.imagekit.io/alanbrunoscience/Games%20Stores/logolg.png?updatedAt=1739995098669"
             alt="GameVerse Logo"
           />
-          <p className="font-bold text-xl mx-3">GameVerse</p>
+          <p className="font-bold text-2xl mx-3">GameVerse</p>
         </div>
 
         {/* Ícone do Carrinho (somente no Mobile) */}
-        <ShoppingCart size={28} />
+        <div className="border border-gray-200 rounded-sm p-1">
+          <ShoppingCart size={29} />
+        </div>
       </div>
 
       {/* Barra de pesquisa (centralizada no Mobile) */}
-      <div className="p-4 xl:hidden">
+      <div className="px-6 py-4 xl:hidden">
         <div className="flex items-center bg-white rounded-2xl">
           <input
             type="text"
@@ -51,7 +55,7 @@ function Navbar() {
       */}
 
       {menuOpen && (
-        <nav className="absolute top-[60px] left-0 w-full bg-slate-900 text-white py-2 xl:hidden">
+        <nav className="absolute top-[70px] left-0 w-5/6 bg-slate-900 text-white py-2 xl:hidden">
           <ul className="flex flex-col items-start px-4">
             <li className="w-full py-3 border-b border-gray-400">Login</li>
             <li className="w-full py-3 border-b border-gray-400">Produtos</li>
@@ -66,7 +70,7 @@ function Navbar() {
           hidden: esconde essa <div> por padrão;
           xl:flex: mostra a <div> como modelo "flexbox" em telas de 1280px ou maiores.
       */}
-      <div className="container mx-auto px-4 hidden xl:flex items-center justify-between py-4">
+      <div className="container mx-auto px-8 hidden xl:flex items-center justify-between py-8">
 
         {/* Logo e Nome (lado esquerdo) */}
         <div className="flex items-center">

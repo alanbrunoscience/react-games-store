@@ -5,9 +5,9 @@ import Home from './pages/home/Home'
 function App() {
   return (
     <div className="scroll-smooth antialiased">
-      {/* <Navbar /> */}
-      {/* <Home /> */}
-      <Footer />      
+      <Navbar />
+      <Home />
+      <Footer />
     </div>
   )
 }
