@@ -64,7 +64,9 @@ function Navbar() {
           <ul className="flex flex-col items-start px-4">
             <li className="w-full py-3 border-b border-gray-400">Login</li>
             <li className="w-full py-3 border-b border-gray-400">Produtos</li>
-            <li className="w-full py-3 border-b border-gray-400">Categorias</li>
+            <li className="w-full py-3 border-b border-gray-400">
+              <Link to='/categorias' className='hover:underline'>Categorias</Link>
+            </li>
             <li className="w-full py-3">Cadastrar Categoria</li>
           </ul>
         </nav>
@@ -105,7 +107,9 @@ function Navbar() {
         <nav>
           <ul className="flex gap-6 text-lg">
             <li className="hover:text-gray-400 cursor-pointer">Produtos</li>
-            <li className="hover:text-gray-400 cursor-pointer">Categorias</li>
+            <li className="hover:text-gray-400 cursor-pointer">
+              <Link to='/categorias' className='hover:underline'>Categorias</Link>
+            </li>
             <li className="hover:text-gray-400 cursor-pointer">Cadastrar Categoria</li>
           </ul>
         </nav>
