@@ -52,19 +52,6 @@ function DeletarCategoria() {
       <div className='container mx-auto px-4 flex flex-col justify-center items-center'>
         <div className="mx-1">
           <h1 className='text-2xl md:text-3xl lg:text-4xl text-center my-4'>Deletar Categoria</h1>
-
-          {/* {isLoading && (
-            <div className="fixed inset-0 flex justify-center items-center bg-gray-200 bg-opacity-75 z-50">
-              <PacmanLoader
-                color="#0D9488"
-                margin={0}
-                size={50}
-                speedMultiplier={2}
-                aria-label="Pacman-loading"
-              />
-            </div>
-          )} */}
-
           <p className='text-center text-sm md:text-lg font-semibold mb-4'>
             Você tem certeza de que deseja apagar a categoria a seguir?
           </p>
@@ -90,7 +77,7 @@ function DeletarCategoria() {
                       aria-label="Pacman-loading"
                     />
                   </div>
-                )} 
+                )}
                 <Check size={24} className='text-white' />
               </button>
 
