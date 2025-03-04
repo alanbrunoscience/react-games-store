@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { PacmanLoader } from 'react-spinners';
 import Categoria from "../../../models/Categoria";
-import CardCategorias from "../cardategorias/CardCategorias";
+import CardCategorias from "../cardcategorias/CardCategorias";
 import { listar } from "../../../services/Service";
 import { ToastAlerta } from "../../../utils/ToastAlerta";
 
