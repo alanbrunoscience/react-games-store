@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import Categoria from "../../../models/Categoria";
 import { atualizar, cadastrar, listar } from "../../../services/Service";
-import { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useRef, useState } from "react";
 import { ToastAlerta } from "../../../utils/ToastAlerta";
 import { PacmanLoader } from "react-spinners";
 
@@ -15,18 +15,21 @@ function FormCategoria() {
 
     const { id } = useParams<{ id: string }>();
 
+    const buscaExecutada = useRef(false); // Rastreia se a busca já foi executada
+
     async function buscarCategoriaPorId(id: string) {
         try {
             await listar(`/categorias/${id}`, setCategoria);
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
         } catch (error: unknown) {
-            ToastAlerta("Categoria não encontrada!", "erro");
+            console.error("Erro ao atualizar categoria:", error);
+            ToastAlerta("Categoria não encontrada!", "info");
             retornar();
         }
     }
 
     useEffect(() => {
-        if (id !== undefined) {
+        if (id && !buscaExecutada.current) { // Verifica se a busca já foi executada
+            buscaExecutada.current = true; // Marca a busca como executada
             buscarCategoriaPorId(id);
         } else {
             setCategoria({
@@ -51,16 +54,16 @@ function FormCategoria() {
             try {
                 await atualizar(`/categorias`, categoria, setCategoria);
                 ToastAlerta("A categoria foi atualizada com sucesso!", "sucesso");
-                // eslint-disable-next-line @typescript-eslint/no-unused-vars
             } catch (error: unknown) {
+                console.error("Erro ao atualizar categoria:", error);
                 ToastAlerta("Erro ao atualizar a categoria!", "erro");
             }
         } else {
             try {
                 await cadastrar(`/categorias`, categoria, setCategoria);
                 ToastAlerta("A categoria foi cadastrada com sucesso!", "sucesso");
-                // eslint-disable-next-line @typescript-eslint/no-unused-vars
             } catch (error: unknown) {
+                console.error("Erro ao atualizar categoria:", error);
                 ToastAlerta("Erro ao cadastrar a categoria!", "erro");
             }
         }

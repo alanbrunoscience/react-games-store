@@ -1,29 +1,36 @@
 import { Check, X } from "@phosphor-icons/react";
 import { useNavigate, useParams } from "react-router-dom";
 import Categoria from "../../../models/Categoria";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ToastAlerta } from "../../../utils/ToastAlerta";
 import { deletar, listar } from "../../../services/Service";
 import { PacmanLoader } from "react-spinners";
 
 function DeletarCategoria() {
+
   const navigate = useNavigate();
+
   const [categoria, setCategoria] = useState<Categoria>({} as Categoria);
+
   const [isLoading, setIsLoading] = useState<boolean>(false);
+
   const { id } = useParams<{ id: string }>();
+
+  const buscaExecutada = useRef(false); // Rastreia se a busca já foi executada
 
   async function buscarCategoriaPorId(id: string) {
     try {
       await listar(`/categorias/${id}`, setCategoria);
     } catch (error: unknown) {
-      console.error("Erro ao buscar categoria:", error);
-      ToastAlerta("Categoria não encontrada!", "erro");
+      console.error("Erro ao deletar categoria:", error);
+      ToastAlerta("Categoria não encontrada!", "info");
       retornar();
     }
   }
 
   useEffect(() => {
-    if (id) {
+    if (id && !buscaExecutada.current) { // Verifica se a busca já foi executada
+      buscaExecutada.current = true; // Marca a busca como executada
       buscarCategoriaPorId(id);
     }
   }, [id]);
