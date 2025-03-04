@@ -18,7 +18,7 @@ function FormCategoria() {
     async function buscarCategoriaPorId(id: string) {
         try {
             await listar(`/categorias/${id}`, setCategoria);
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
         } catch (error: unknown) {
             ToastAlerta("Categoria não encontrada!", "erro");
             retornar();
@@ -51,7 +51,7 @@ function FormCategoria() {
             try {
                 await atualizar(`/categorias`, categoria, setCategoria);
                 ToastAlerta("A categoria foi atualizada com sucesso!", "sucesso");
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+                // eslint-disable-next-line @typescript-eslint/no-unused-vars
             } catch (error: unknown) {
                 ToastAlerta("Erro ao atualizar a categoria!", "erro");
             }
@@ -59,7 +59,7 @@ function FormCategoria() {
             try {
                 await cadastrar(`/categorias`, categoria, setCategoria);
                 ToastAlerta("A categoria foi cadastrada com sucesso!", "sucesso");
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+                // eslint-disable-next-line @typescript-eslint/no-unused-vars
             } catch (error: unknown) {
                 ToastAlerta("Erro ao cadastrar a categoria!", "erro");
             }
@@ -74,45 +74,49 @@ function FormCategoria() {
     }
 
     return (
-        <div className="container flex flex-col items-center justify-center mx-auto">
-            <h1 className="text-4xl text-center my-8">
-                {id === undefined ? "Cadastrar Categoria" : "Editar Categoria"}
-            </h1>
+        <section className="w-full py-8 flex flex-col justify-center items-center">
+            <div className="container mx-auto px-4 flex flex-col justify-center items-center">
+                <div className="mx-1 lg:w-1/3">
+                    <h1 className="text-2xl md:text-3xl lg:text-4xl text-center my-4">
+                        {id === undefined ? "Cadastrar Categoria" : "Editar Categoria"}
+                    </h1>
 
-            {isLoading && (
-                <div className="fixed inset-0 flex justify-center items-center bg-gray-200 bg-opacity-75 z-50">
-                    <PacmanLoader
-                        color="#0D9488"
-                        margin={0}
-                        size={50}
-                        speedMultiplier={2}
-                        aria-label="Pacman-loading"
-                    />
-                </div>
-            )}
+                    {isLoading && (
+                        <div className="fixed inset-0 flex justify-center items-center bg-gray-200 bg-opacity-75 z-50">
+                            <PacmanLoader
+                                color="#0D9488"
+                                margin={0}
+                                size={50}
+                                speedMultiplier={2}
+                                aria-label="Pacman-loading"
+                            />
+                        </div>
+                    )}
 
-            <form className="flex flex-col w-1/2 gap-4" onSubmit={gerarNovaCategoria}>
-                <div className="flex flex-col gap-2">
-                    <label htmlFor="categoria">Descrição da Categoria</label>
-                    <input
-                        type="text"
-                        placeholder="Informe aqui o nome da categoria"
-                        name='tipo'
-                        className="p-2 border-2 rounded border-slate-700 bg-white"
-                        required
-                        value={categoria.tipo}
-                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
-                    />
+                    <form className="flex flex-col w-full gap-4" onSubmit={gerarNovaCategoria}>
+                        <div className="flex flex-col gap-2">
+                            <label htmlFor="categoria" className="flex justify-center lg:justify-start">Descrição da Categoria</label>
+                            <input
+                                type="text"
+                                placeholder="Informe aqui o nome da categoria"
+                                name='tipo'
+                                className="text-sm md:text-base p-2 border-2 rounded border-slate-700 bg-white"
+                                required
+                                value={categoria.tipo}
+                                onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                            />
+                        </div>
+                        <button
+                            className="flex justify-center w-32 lg:w-48 py-2 mx-auto rounded text-white text-sm lg:text-base bg-slate-700 hover:bg-slate-800"
+                            type="submit"
+                            disabled={isLoading} // Desabilita o botão durante o carregamento
+                        >
+                            <span>{id === undefined ? "Cadastrar" : "Atualizar"}</span>
+                        </button>
+                    </form>
                 </div>
-                <button
-                    className="flex justify-center w-1/2 py-2 mx-auto rounded text-slate-100 bg-slate-400 hover:bg-slate-800"
-                    type="submit"
-                    disabled={isLoading} // Desabilita o botão durante o carregamento
-                >
-                    <span>{id === undefined ? "Cadastrar" : "Atualizar"}</span>
-                </button>
-            </form>
-        </div>
+            </div>
+        </section>
     );
 }
 

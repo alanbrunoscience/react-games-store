@@ -48,7 +48,7 @@ function DeletarCategoria() {
   }
 
   return (
-    <section className="w-full my-8 flex flex-col justify-center items-center">
+    <section className="w-full py-8 flex flex-col justify-center items-center">
       <div className='container mx-auto px-4 flex flex-col justify-center items-center'>
         <div className="mx-1">
           <h1 className='text-2xl md:text-3xl lg:text-4xl text-center my-4'>Deletar Categoria</h1>
@@ -59,7 +59,7 @@ function DeletarCategoria() {
             <header className='py-2 px-6 text-2xl font-bold bg-slate-700 text-white'>
               Categoria
             </header>
-            <p className='h-full p-8 text-2xl lg:text-3xl bg-slate-200'>{categoria.tipo}</p>
+            <p className='h-full p-8 text-2xl lg:text-3xl bg-white'>{categoria.tipo}</p>
             <div className="flex">
               <button
                 className='flex items-center justify-center w-full py-2 bg-teal-600 text-slate-50 hover:bg-teal-800'
